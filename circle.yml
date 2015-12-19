@@ -1,0 +1,21 @@
+machine:
+  timezone:
+    Asia/Tokyo
+  ruby:
+    version: 2.2.3
+  node:
+    version: 4.2.2
+
+dependencies:
+  post:
+    - npm run build
+
+test:
+  override:
+    - echo "No Real Tests"
+
+deployment:
+  release:
+    branch: master
+    commands:
+      - npm run ci

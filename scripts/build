@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+require 'json'
+require 'rake'
+
+ROOT = File.expand_path('../..', __FILE__)
+LATEST_UPDATED_AT = File.read(File.join(ROOT, 'source-data', 'data', 'updated_at')).strip
+
+sh('git submodule update --init')
+sh("git submodule foreach 'git pull origin master'")
+
+# Update package.json
+package_json = JSON.load(File.read(File.join(ROOT, 'package.json')))
+
+package_json['version'] = package_json['version'].sub(/-p\d+$/, "-p#{LATEST_UPDATED_AT}")
+
+open(File.join(ROOT, 'package.json'), 'w') do |f|
+  f.write(JSON.pretty_generate(package_json))
+end
+
+# Update lib/zengin-data.js
+banks = JSON.load(File.read(File.join(ROOT, 'source-data', 'data', 'banks.json')))
+
+banks.each_pair do |code, bank|
+  branches = JSON.load(File.read(File.join(ROOT, 'source-data', 'data', 'branches', "#{code}.json")))
+  bank['branches'] = branches
+end
+
+open(File.join(ROOT, 'lib', 'zengin-data.js'), 'w') do |f|
+  f.write('module.exports = ')
+  f.write(JSON.pretty_generate(banks))
+  f.write(";\n")
+end
