@@ -3,10 +3,12 @@ require 'json'
 require 'rake'
 
 ROOT = File.expand_path('../..', __FILE__)
-LATEST_UPDATED_AT = File.read(File.join(ROOT, 'source-data', 'data', 'updated_at')).strip
 
+# Checkout submodule first
 sh('git submodule update --init')
 sh("git submodule foreach 'git pull origin master'")
+
+LATEST_UPDATED_AT = File.read(File.join(ROOT, 'source-data', 'data', 'updated_at')).strip
 
 # Update package.json
 package_json = JSON.load(File.read(File.join(ROOT, 'package.json')))
