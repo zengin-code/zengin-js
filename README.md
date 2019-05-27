@@ -2,6 +2,7 @@
 
 [![Circle CI](https://img.shields.io/circleci/project/zengin-code/zengin-js.svg)](https://circleci.com/gh/zengin-code/zengin-js)
 [![npm version](https://badge.fury.io/js/zengin-code.svg)](http://badge.fury.io/js/zengin-code)
+[![zengin-code Dev Token](https://badge.devtoken.rocks/zengin-code)](https://devtoken.rocks/package/zengin-code)
 
 The javascript implementation of ZenginCode.
 
