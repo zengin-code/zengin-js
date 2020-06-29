@@ -1,6 +1,6 @@
 {
   "name": "zengin-code",
-  "version": "1.0.0-p20200615",
+  "version": "1.0.0-p20200629",
   "main": "lib/zengin-code.js",
   "description": "bank codes and branch codes for japanese",
   "files": [
