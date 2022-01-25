@@ -11,10 +11,7 @@ CI_RELEASE_VERSION=`date +"v%Y-%m-%d"`
 
 cat > $HOME/.npmrc << EOF
 ---
-//registry.npmjs.org/:_password=${NPMPASSWORD}
-//registry.npmjs.org/:username=${NPMUSER}
-//registry.npmjs.org/:email=${NPMEMAIL}
-//registry.npmjs.org/:always-auth=false
+//registry.npmjs.org/:_authToken=${NPM_TOKEN}
 EOF
 chmod 600 $HOME/.npmrc
 
