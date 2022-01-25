@@ -16,7 +16,7 @@ package_json = JSON.load(File.read(File.join(ROOT, 'package.json')))
 package_json['version'] = package_json['version'].sub(/-p\d+$/, "-p#{LATEST_UPDATED_AT}")
 
 open(File.join(ROOT, 'package.json'), 'w') do |f|
-  f.write(JSON.pretty_generate(package_json))
+  f.puts(JSON.pretty_generate(package_json))
 end
 
 # Update lib/zengin-data.js
