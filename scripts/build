@@ -5,8 +5,8 @@ require 'rake'
 ROOT = File.expand_path('../..', __FILE__)
 
 # Checkout submodule first
-sh('git submodule update --init')
-sh("git submodule foreach 'git pull origin master'")
+# sh('git submodule update --init')
+# sh("git submodule foreach 'git pull origin master'")
 
 LATEST_UPDATED_AT = File.read(File.join(ROOT, 'source-data', 'data', 'updated_at')).strip
 
