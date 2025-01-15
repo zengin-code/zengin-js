@@ -36,3 +36,5 @@ jobs:
           git submodule update --remote
           ./scripts/build
           ./scripts/ci
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
