@@ -21,4 +21,4 @@ fi
 git commit -a -m "Update: ${CI_RELEASE_VERSION}"
 git push --all
 
-npm publish
+npm publish --force
