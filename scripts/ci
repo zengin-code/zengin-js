@@ -7,11 +7,11 @@ git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
 CI_RELEASE_VERSION=`date +"v%Y-%m-%d"`
 
-cat > $HOME/.npmrc << EOF
----
-//registry.npmjs.org/:_authToken=${NPM_TOKEN}
-EOF
-chmod 600 $HOME/.npmrc
+# cat > $HOME/.npmrc << EOF
+# ---
+# //registry.npmjs.org/:_authToken=${NPM_TOKEN}
+# EOF
+# chmod 600 $HOME/.npmrc
 
 if [ -z "$(git status -s)" ]; then
   echo "No changes to commit"

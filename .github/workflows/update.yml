@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
+      id-token: write
       contents: write
 
     steps:
@@ -26,6 +27,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 'latest'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: npm install
         run: npm install
@@ -36,5 +38,3 @@ jobs:
           git submodule update --remote
           ./scripts/build
           ./scripts/ci
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
